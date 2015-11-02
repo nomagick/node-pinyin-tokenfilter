@@ -234,15 +234,13 @@ var Pinyin = function(options){
             }
             return nextAcc
         }, [[[],[],[],[]]]);
-        return _(finalProduct).map(function(item){
+        return _.map(finalProduct, function(item){
             var firstLetters = item[0].join(self.options.separator);
             var phonetics = item[1].join(self.options.separator);
             var letters = item[2].join(self.options.separator);
             var lettersWithTones = item[3].join(self.options.separator);
-
             return [firstLetters, phonetics, letters, lettersWithTones]
-
-        }).value()
+        })
     };
 
     Pinyin.prototype._firstMatch = function (vectorOfVectors) {
@@ -266,9 +264,9 @@ var Pinyin = function(options){
             acc[3].push(rawV.substring(0, rawV.length-1));
             return acc
         }, [[],[],[],[]]);
-        return _(finalProduct).map(function(tokenV){
+        return _.map(finalProduct, function(tokenV){
             return tokenV.join(self.options.separator);
-        }).uniq().compact().value()
+        })
     };
 
 
