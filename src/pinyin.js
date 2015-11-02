@@ -59,8 +59,8 @@ var defaultOptions = {
     //'mood': FLAG_MINT,
     //'patchYu': false,
     'separator': '',
-    'characterDictPath': '../data/characters.txt',
-    'tokenDictPath': '../data/tokens.txt'
+    'characterDictPath': __dirname + '/../data/characters.txt',
+    'tokenDictPath': __dirname + '/../data/tokens.txt'
 };
 
 
