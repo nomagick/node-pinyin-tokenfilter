@@ -1,0 +1,25 @@
+{
+  "name": "node-pinyin-tokenfilter",
+  "version": "0.0.0",
+  "description": "A node module that translate Chinese characters into [a-z]s base on the rule of HanYuPinYin.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avastms/node-pinyin-tokenfilter.git"
+  },
+  "keywords": [
+    "pinyin"
+  ],
+  "author": "yanlong.wang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/avastms/node-pinyin-tokenfilter/issues"
+  },
+  "homepage": "https://github.com/avastms/node-pinyin-tokenfilter#readme",
+  "dependencies": {
+    "lodash": "^3.10.1"
+  }
+}
