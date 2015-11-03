@@ -99,6 +99,7 @@ var Pinyin = function(options){
         var theLine = '';
         var dictVector = null;
         var self = this;
+        var dropRRegexp = new RegExp('\r','g');
 
         bytesRead = fs.readSync(dictFile, buff, 0, buff.length);
 
@@ -110,6 +111,9 @@ var Pinyin = function(options){
 
             while (thisLineOffset < finalLineOffset) {
                 theLine = rawDict.substring(lastLineOffset + 1, thisLineOffset);
+                if (theLine) {
+                    theLine = theLine.replace(dropRRegexp,'');
+                }
                 dictVector = theLine.split(',');
 
                 lastLineOffset = thisLineOffset;
@@ -146,6 +150,7 @@ var Pinyin = function(options){
         var self = this;
         var theLine = '';
         var dictVector = null;
+        var dropRRegexp = new RegExp('\r','g');
 
         bytesRead = fs.readSync(dictFile, buff, 0, buff.length);
 
@@ -157,6 +162,9 @@ var Pinyin = function(options){
 
             while (thisLineOffset < finalLineOffset) {
                 theLine = rawDict.substring(lastLineOffset + 1, thisLineOffset);
+                if (theLine) {
+                    theLine = theLine.replace(dropRRegexp,'');
+                }
                 dictVector = theLine.split(',');
 
                 lastLineOffset = thisLineOffset;
