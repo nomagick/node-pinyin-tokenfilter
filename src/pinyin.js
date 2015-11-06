@@ -229,14 +229,18 @@ var Pinyin = function(options){
                     var specialOffset = parseInt(rawV[rawV.length-1]);
                     var specialLetter = REVERSED_MAP_PHONETIC_LETTER_AND_TONE[rawV[specialOffset] + rawV.substring(rawV.length-2, rawV.length-1)];
                     var phoneticForm = '';
+                    var compoundForm = '';
                     if (specialLetter && !_.isNaN(specialOffset)) {
                         phoneticForm = rawV.substring(0, specialOffset) + specialLetter + rawV.substring(specialOffset+1, rawV.length-2);
+                        compoundForm = rawV.substring(0, rawV.length-1);
+                    } else {
+                        phoneticForm = letterForm;
+                        compoundForm = letterForm;
                     }
-                    letterForm.substring(0,parseInt(rawV[rawV.length-1]));
                     newV[0].push(rawV[0]);
                     newV[1].push(phoneticForm);
                     newV[2].push(letterForm);
-                    newV[3].push(rawV.substring(0, rawV.length-1));
+                    newV[3].push();
                     nextAcc.push(newV);
                 }
             }
@@ -262,14 +266,18 @@ var Pinyin = function(options){
             var specialOffset = parseInt(rawV[rawV.length-1]);
             var specialLetter = REVERSED_MAP_PHONETIC_LETTER_AND_TONE[rawV[specialOffset] + rawV.substring(rawV.length-2, rawV.length-1)];
             var phoneticForm = '';
+            var compoundForm = '';
             if (specialLetter && !_.isNaN(specialOffset)) {
                 phoneticForm = rawV.substring(0, specialOffset) + specialLetter + rawV.substring(specialOffset+1, rawV.length-2);
+                compoundForm = rawV.substring(0, rawV.length-1);
+            } else {
+                phoneticForm = letterForm;
+                compoundForm = letterForm;
             }
-            letterForm.substring(0,parseInt(rawV[rawV.length-1]));
             acc[0].push(rawV[0]);
             acc[1].push(phoneticForm);
             acc[2].push(letterForm);
-            acc[3].push(rawV.substring(0, rawV.length-1));
+            acc[3].push(compoundForm);
             return acc
         }, [[],[],[],[]]);
         return _.map(finalProduct, function(tokenV){
